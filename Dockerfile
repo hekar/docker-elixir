@@ -1,6 +1,8 @@
-FROM ubuntu:saucy
+FROM ubuntu:utopic
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV DE_ERLANG 1:17.1-dfsg-4ubuntu2
+ENV DE_ELIXIR v0.15.1
 
 RUN apt-get -y update
 RUN apt-get -y install wget build-essential git
@@ -9,7 +11,7 @@ WORKDIR /tmp/erlang-build
 RUN wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
 RUN dpkg -i erlang-solutions_1.0_all.deb
 RUN apt-get -y update
-RUN apt-get -y install erlang-base-hipe=1:16.b.3-3 erlang-dev=1:16.b.3-3 erlang-appmon=1:16.b.3-3 erlang-asn1=1:16.b.3-3 erlang-common-test=1:16.b.3-3 erlang-corba=1:16.b.3-3 erlang-crypto=1:16.b.3-3 erlang-debugger=1:16.b.3-3 erlang-dialyzer=1:16.b.3-3 erlang-diameter=1:16.b.3-3 erlang-edoc=1:16.b.3-3 erlang-eldap=1:16.b.3-3 erlang-erl-docgen=1:16.b.3-3 erlang-et=1:16.b.3-3 erlang-eunit=1:16.b.3-3 erlang-gs=1:16.b.3-3 erlang-ic=1:16.b.3-3 erlang-inets=1:16.b.3-3 erlang-inviso=1:16.b.3-3 erlang-megaco=1:16.b.3-3 erlang-mnesia=1:16.b.3-3 erlang-observer=1:16.b.3-3 erlang-odbc=1:16.b.3-3 erlang-os-mon=1:16.b.3-3 erlang-parsetools=1:16.b.3-3 erlang-percept=1:16.b.3-3 erlang-pman=1:16.b.3-3 erlang-public-key=1:16.b.3-3 erlang-reltool=1:16.b.3-3 erlang-runtime-tools=1:16.b.3-3 erlang-snmp=1:16.b.3-3 erlang-ssh=1:16.b.3-3 erlang-ssl=1:16.b.3-3 erlang-syntax-tools=1:16.b.3-3 erlang-test-server=1:16.b.3-3 erlang-toolbar=1:16.b.3-3 erlang-tools=1:16.b.3-3 erlang-tv=1:16.b.3-3 erlang-typer=1:16.b.3-3 erlang-webtool=1:16.b.3-3 erlang-wx=1:16.b.3-3 erlang-xmerl=1:16.b.3-3
+RUN apt-get -y install erlang-base-hipe=$DE_ERLANG erlang-dev=$DE_ERLANG erlang=$DE_ERLANG erlang-asn1=$DE_ERLANG erlang-common-test=$DE_ERLANG erlang-corba=$DE_ERLANG erlang-crypto=$DE_ERLANG erlang-debugger=$DE_ERLANG erlang-dialyzer=$DE_ERLANG erlang-diameter=$DE_ERLANG erlang-edoc=$DE_ERLANG erlang-eldap=$DE_ERLANG erlang-erl-docgen=$DE_ERLANG erlang-et=$DE_ERLANG erlang-eunit=$DE_ERLANG erlang-gs=$DE_ERLANG erlang-ic=$DE_ERLANG erlang-inets=$DE_ERLANG erlang-megaco=$DE_ERLANG erlang-mnesia=$DE_ERLANG erlang-observer=$DE_ERLANG erlang-odbc=$DE_ERLANG erlang-os-mon=$DE_ERLANG erlang-parsetools=$DE_ERLANG erlang-percept=$DE_ERLANG erlang-pman=$DE_ERLANG erlang-public-key=$DE_ERLANG erlang-reltool=$DE_ERLANG erlang-runtime-tools=$DE_ERLANG erlang-snmp=$DE_ERLANG erlang-ssh=$DE_ERLANG erlang-ssl=$DE_ERLANG erlang-ssl=$DE_ERLANG erlang-syntax-tools=$DE_ERLANG erlang-test-server=$DE_ERLANG erlang-toolbar=$DE_ERLANG erlang-tools=$DE_ERLANG erlang-tv=$DE_ERLANG erlang-typer=$DE_ERLANG erlang-webtool=$DE_ERLANG erlang-xmerl=$DE_ERLANG
 
 RUN git clone git://github.com/rebar/rebar.git
 WORKDIR /tmp/erlang-build/rebar
@@ -19,7 +21,7 @@ RUN cp rebar /usr/local/bin/
 WORKDIR /tmp/erlang-build/
 RUN git clone https://github.com/elixir-lang/elixir.git
 WORKDIR /tmp/erlang-build/elixir
-RUN git checkout v0.12.5
+RUN git checkout $DE_ELIXIR
 RUN make install
 
 WORKDIR /

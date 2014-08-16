@@ -1,16 +1,17 @@
-docker-elixir
----
+# docker-elixir
 
-A Dockerfile to build an elixir image.
+A Dockerfile to build an Elixir image.
 
 Currently installs:
 
-* Erlang R16B03-1 
-* Elixir 0.12.5
+* Erlang/OTP 17.1
+* Elixir 0.15.1
 
+Available on Docker Hub as `cargosense/elixir`
 
 ## Credit
 
-This is heavily based on the Dockerfile at commit 0db3338 of
-https://github.com/binarin/docker-elixir with some changes to get it to work
-for me.
+Based on:
+
+* https://github.com/obmarg/docker-elixir
+* https://github.com/binarin/docker-elixir
