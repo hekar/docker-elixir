@@ -5,7 +5,7 @@ A Dockerfile to build an Elixir image.
 Currently installs:
 
 * Erlang/OTP 17.1
-* Elixir 1.0.0-rc1
+* Elixir 1.0.0
 
 Available on Docker Hub as `cargosense/elixir`
 
@@ -14,7 +14,7 @@ Available on Docker Hub as `cargosense/elixir`
 After making changes to `Dockerfile`, build the image:
 
 ```
-$ docker build -t cargosense/elixir
+$ docker build -t cargosense/elixir .
 ```
 
 Test Elixir:

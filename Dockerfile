@@ -2,7 +2,7 @@ FROM ubuntu:utopic
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV DE_ERLANG 1:17.1-dfsg-4ubuntu2
-ENV DE_ELIXIR v1.0.0-rc1
+ENV DE_ELIXIR v1.0.0
 
 RUN apt-get -y update
 RUN apt-get -y install wget build-essential git
