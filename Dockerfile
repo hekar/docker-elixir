@@ -4,6 +4,11 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV DE_ERLANG 1:17.1-dfsg-4ubuntu2
 ENV DE_ELIXIR v1.0.0
 
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LS_ALL en_US.UTF-8
+
 RUN apt-get -y update
 RUN apt-get -y install wget build-essential git
 RUN mkdir /tmp/erlang-build
@@ -24,6 +29,6 @@ WORKDIR /tmp/erlang-build/elixir
 RUN git checkout $DE_ELIXIR
 RUN make install
 
-WORKDIR /
+WORKDIR $HOME
 RUN rm -rf /tmp/erlang-build
 RUN apt-get clean
