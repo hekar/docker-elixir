@@ -1,7 +1,7 @@
 FROM ubuntu:utopic
 
 ENV DEBIAN_FRONTEND="noninteractive" \
-  DE_ERLANG="1:17.3.2" \
+  DE_ERLANG="1:17.5" \
   LANG="en_US.UTF-8" \
   LANGUAGE="en_US:en" \
   LS_ALL="en_US.UTF-8"
@@ -18,7 +18,7 @@ RUN mkdir /tmp/erlang-build && \
   cd /tmp/erlang-build && \
   git clone https://github.com/elixir-lang/elixir.git && \
   cd /tmp/erlang-build/elixir && \
-  git checkout v1.0.2 && \
+  git checkout v1.0.4 && \
   make install && \
   cd $HOME && \
   rm -rf /tmp/erlang-build && \
