@@ -1,41 +1,42 @@
 # docker-elixir
 
-A Dockerfile to build an Elixir image.
+Based on https://github.com/CargoSense/docker-elixir
+
+Dockerfile to build an Elixir image.
 
 Currently installs:
 
-* Erlang/OTP 17.1
-* Elixir 1.0.0
+* Erlang/OTP 18.2.1
+* Elixir 1.0.5 (with mix)
 
-Available on Docker Hub as `cargosense/elixir`
+Available on Docker Hub as `hekar/elixir`
 
-## Developing
+## Use in Dockerfile
+
+```
+FROM hekar/elixir
+
+ENTRYPOINT ['...']
+```
+
+## Build Locally
 
 After making changes to `Dockerfile`, build the image:
 
 ```
-$ docker build -t cargosense/elixir .
+$ docker build -t hekar/elixir .
 ```
 
 Test Elixir:
 
 ```
-docker run -i -t cargosense/elixir /bin/bash
-root@b51dc1549f5b:/# iex
-Erlang/OTP 17 [erts-6.1] [source] [64-bit] [smp:8:8] [async-threads:10] [hipe] [kernel-poll:false]
-Interactive Elixir (1.0.0-rc1) - press Ctrl+C to exit (type h() ENTER for help)
-iex(1)>
+docker run -i -t hekar/elixir /bin/bash
+> mix new project && cd project
+> iex -S mix
 ```
 
 Push the image:
 
 ```
-$ docker push cargosense/elixir
+$ docker push hekar/elixir
 ```
-
-## Credit
-
-Based on:
-
-* https://github.com/obmarg/docker-elixir
-* https://github.com/binarin/docker-elixir
