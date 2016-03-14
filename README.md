@@ -7,7 +7,7 @@ Dockerfile to build an Elixir image.
 Currently installs:
 
 * Erlang/OTP 18.2.1
-* Elixir 1.0.5 (with mix)
+* Elixir 1.2.0 (with mix)
 
 Available on Docker Hub as `hekar/elixir`
 
